@@ -12,7 +12,7 @@ Open `index.html` in your browser.
 If your browser blocks local JSON loading, use a simple local server:
 
 ```powershell
-cd "C:\Users\raven\OneDrive\Documents\kingdom-management"
+cd "C:\Users\(**IMPORTANT PART** put in your account name)\OneDrive\Documents\kingdom-management"
 powershell -ExecutionPolicy Bypass -File .\serve.ps1 -Port 5173
 ```
 
