@@ -17,4 +17,5 @@ powershell -ExecutionPolicy Bypass -File .\serve.ps1 -Port 5173
 ```
 
 Then open `http://localhost:5173`.
+Or look at deployment
 
