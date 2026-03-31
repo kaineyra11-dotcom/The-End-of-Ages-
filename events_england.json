@@ -1,0 +1,457 @@
+[
+  {
+    "id": "plague_1348_rumors",
+    "title": "Rumors from the South",
+    "text": "Merchants speak of a great mortality in ports across the sea. Some say it travels with ships and fleas; others say it is God’s scourge.",
+    "tags": ["plague", "crisis"],
+    "minYear": 1348,
+    "maxYear": 1349,
+    "unique": true,
+    "weight": 8,
+    "choices": [
+      {
+        "label": "Order prayers and processions.",
+        "delta": { "faith": 8, "populous": 2, "wealth": -2 },
+        "addTags": ["piety_emphasis"],
+        "legacy": 2
+      },
+      {
+        "label": "Inspect ports and restrict arrivals.",
+        "delta": { "wealth": -6, "populous": 2, "loyalty": -1 },
+        "addTags": ["port_controls"],
+        "legacy": 1
+      },
+      {
+        "label": "Dismiss it as foreign panic.",
+        "delta": { "wealth": 2, "populous": -3, "loyalty": -1 },
+        "legacy": -2
+      }
+    ]
+  },
+  {
+    "id": "plague_1348_arrival",
+    "title": "The Pestilence Arrives",
+    "text": "Buboes and fever appear in a coastal town. Within days, households are struck down. Fear spreads faster than any rider.",
+    "tags": ["plague", "crisis"],
+    "minYear": 1348,
+    "maxYear": 1350,
+    "requiresTags": [],
+    "unique": true,
+    "weight": 10,
+    "choices": [
+      {
+        "label": "Fund hospitals and burial crews.",
+        "delta": { "wealth": -10, "populous": 6, "faith": 3, "loyalty": -2 },
+        "addTags": ["plague_active"],
+        "legacy": 3
+      },
+      {
+        "label": "Let towns manage it; keep coin for war and law.",
+        "delta": { "wealth": 4, "populous": -8, "loyalty": 2, "army": 1 },
+        "addTags": ["plague_active"],
+        "legacy": -3
+      }
+    ]
+  },
+  {
+    "id": "plague_1349_labor_shortage",
+    "title": "Labor Grows Scarce",
+    "text": "So many are dead that fields go unploughed. Survivors demand higher wages and freer movement; lords complain their customary dues are failing.",
+    "tags": ["plague", "economy"],
+    "minYear": 1349,
+    "maxYear": 1365,
+    "weight": 10,
+    "choices": [
+      {
+        "label": "Freeze wages by decree.",
+        "delta": { "loyalty": 6, "populous": -10, "wealth": 2 },
+        "addTags": ["wage_controls"],
+        "legacy": 1
+      },
+      {
+        "label": "Allow bargaining in towns and manors.",
+        "delta": { "populous": 8, "wealth": 4, "loyalty": -6 },
+        "addTags": ["wage_market"],
+        "legacy": 1
+      },
+      {
+        "label": "Bind workers to their villages by ordinance.",
+        "delta": { "loyalty": 2, "populous": -14, "faith": -1 },
+        "addTags": ["labor_binding"],
+        "legacy": -1
+      }
+    ]
+  },
+  {
+    "id": "plague_1350_manor_empty",
+    "title": "An Empty Manor",
+    "text": "A steward reports that half a village is gone. The remaining tenants cannot meet the old dues. The manor court waits for your decision.",
+    "tags": ["plague"],
+    "minYear": 1349,
+    "maxYear": 1360,
+    "weight": 8,
+    "choices": [
+      {
+        "label": "Reduce dues to keep tenants on the land.",
+        "delta": { "populous": 6, "wealth": -4, "loyalty": -2 },
+        "legacy": 2
+      },
+      {
+        "label": "Demand the customary dues in full.",
+        "delta": { "populous": -8, "loyalty": 5, "wealth": 2 },
+        "legacy": -1
+      },
+      {
+        "label": "Commute labor dues into cash payments.",
+        "delta": { "wealth": 6, "loyalty": -2, "populous": 2 },
+        "addTags": ["cash_rents"],
+        "legacy": 1
+      }
+    ]
+  },
+  {
+    "id": "plague_1351_ordinance",
+    "title": "The Realm Debates Wage Law",
+    "text": "Your council proposes strict enforcement against ‘excess wages’ and wandering servants. Sheriffs ask for clear orders.",
+    "tags": ["plague", "law"],
+    "minYear": 1351,
+    "maxYear": 1352,
+    "unique": true,
+    "weight": 10,
+    "choices": [
+      {
+        "label": "Enforce wage law harshly.",
+        "delta": { "loyalty": 4, "populous": -12, "wealth": 2, "faith": 1 },
+        "addTags": ["wage_controls", "harsh_law"],
+        "legacy": 0
+      },
+      {
+        "label": "Enforce it lightly; avoid provoking the commons.",
+        "delta": { "populous": -2, "loyalty": -2 },
+        "legacy": 1
+      }
+    ]
+  },
+  {
+    "id": "church_heresy_whispers",
+    "title": "Whispers of Heresy",
+    "text": "Some priests preach that the pestilence proves the Church is corrupt. Others blame foreigners or Jews. You must keep order, and truth.",
+    "tags": ["church", "crisis"],
+    "minYear": 1348,
+    "maxYear": 1400,
+    "weight": 6,
+    "choices": [
+      {
+        "label": "Back the bishops and punish agitators.",
+        "delta": { "faith": 8, "populous": -4, "loyalty": 1 },
+        "addTags": ["orthodoxy"],
+        "legacy": 1
+      },
+      {
+        "label": "Hold a royal inquiry; calm the town with justice.",
+        "delta": { "populous": 4, "faith": 2, "wealth": -4 },
+        "legacy": 2
+      },
+      {
+        "label": "Ignore it; you have bigger problems.",
+        "delta": { "populous": -2, "loyalty": -1 },
+        "legacy": -1
+      }
+    ]
+  },
+  {
+    "id": "economy_wool_trade",
+    "title": "The Wool Merchants Petition",
+    "text": "Merchants ask for safer roads and predictable tolls. In return they offer loans, at interest the clergy dislike.",
+    "tags": ["economy"],
+    "minYear": 1348,
+    "maxYear": 1450,
+    "weight": 6,
+    "choices": [
+      {
+        "label": "Grant charters and protect their trade.",
+        "delta": { "wealth": 8, "populous": 2, "faith": -3, "loyalty": -2 },
+        "addTags": ["chartered_towns"],
+        "legacy": 1
+      },
+      {
+        "label": "Squeeze them with new tolls.",
+        "delta": { "wealth": 6, "populous": -4, "loyalty": -1 },
+        "legacy": -1
+      }
+    ]
+  },
+  {
+    "id": "law_justice_eyre",
+    "title": "Royal Justices on Circuit",
+    "text": "Your justices report local lords overriding customary courts. The commons ask for the king’s peace.",
+    "tags": ["law"],
+    "minYear": 1348,
+    "maxYear": 1500,
+    "weight": 6,
+    "choices": [
+      {
+        "label": "Enforce royal law over local courts.",
+        "delta": { "populous": 6, "loyalty": -6, "wealth": -3 },
+        "addTags": ["centralization"],
+        "legacy": 2
+      },
+      {
+        "label": "Let local lords handle it in their own courts.",
+        "delta": { "loyalty": 5, "populous": -4 },
+        "legacy": -1
+      }
+    ]
+  },
+  {
+    "id": "war_levy_request",
+    "title": "A Call for Levies",
+    "text": "Your captains ask for men and horses. Lords offer service, but complain the realm cannot spare labor after the mortality.",
+    "tags": ["war"],
+    "minYear": 1348,
+    "maxYear": 1420,
+    "weight": 6,
+    "choices": [
+      {
+        "label": "Demand feudal service as owed.",
+        "delta": { "army": 6, "loyalty": -2, "populous": -4 },
+        "legacy": 1
+      },
+      {
+        "label": "Hire paid soldiers instead.",
+        "delta": { "wealth": -10, "army": 8, "loyalty": 2 },
+        "addTags": ["paid_armies"],
+        "legacy": 1
+      }
+    ]
+  },
+  {
+    "id": "harvest_bad",
+    "title": "A Poor Harvest",
+    "text": "Rain and blight ruin grain. Granaries thin and tempers rise; your officers warn of unrest if bread prices climb.",
+    "tags": ["crisis"],
+    "minYear": 1348,
+    "maxYear": 1558,
+    "weight": 6,
+    "choices": [
+      {
+        "label": "Release grain stores and cap prices.",
+        "delta": { "wealth": -6, "populous": 8, "loyalty": -2 },
+        "legacy": 2
+      },
+      {
+        "label": "Let the market set the price.",
+        "delta": { "wealth": 3, "populous": -10, "loyalty": -2 },
+        "legacy": -1
+      }
+    ]
+  },
+  {
+    "id": "revolt_taxes_murmur",
+    "title": "Grumbling Over Taxes",
+    "text": "Collectors report resistance. Villages say they have buried too many dead to pay as before.",
+    "tags": ["revolt", "crisis"],
+    "minYear": 1349,
+    "maxYear": 1382,
+    "weight": 7,
+    "choices": [
+      {
+        "label": "Send sheriffs with strict orders.",
+        "delta": { "wealth": 6, "populous": -8, "loyalty": 2, "army": 1 },
+        "addTags": ["tax_harsh"],
+        "legacy": -1
+      },
+      {
+        "label": "Offer relief in the worst-hit shires.",
+        "delta": { "wealth": -6, "populous": 6, "loyalty": -1 },
+        "legacy": 2
+      }
+    ]
+  },
+  {
+    "id": "revolt_1381_sparks",
+    "title": "Sparks in the Southeast",
+    "text": "Rumors spread of villages refusing dues and officials being driven off. The air smells of pitch and anger.",
+    "tags": ["revolt", "crisis"],
+    "minYear": 1381,
+    "maxYear": 1381,
+    "unique": true,
+    "weight": 12,
+    "choices": [
+      {
+        "label": "Meet them and promise reforms.",
+        "delta": { "populous": 10, "loyalty": -10, "faith": 1 },
+        "addTags": ["reform_promises"],
+        "legacy": 3
+      },
+      {
+        "label": "Crush the rebels with force.",
+        "delta": { "loyalty": 6, "populous": -14, "army": 3, "faith": -1 },
+        "addTags": ["repression"],
+        "legacy": -2
+      }
+    ]
+  },
+  {
+    "id": "revolt_aftermath",
+    "title": "After the Rising",
+    "text": "The revolt breaks, but memory remains. Lords demand renewed control; towns fear further disorder.",
+    "tags": ["revolt"],
+    "minYear": 1381,
+    "maxYear": 1385,
+    "weight": 8,
+    "choices": [
+      {
+        "label": "Confirm harsh penalties and strengthen manorial courts.",
+        "delta": { "loyalty": 4, "populous": -8, "army": 1 },
+        "legacy": 0
+      },
+      {
+        "label": "Quietly ease dues to prevent another spark.",
+        "delta": { "populous": 6, "loyalty": -3 },
+        "legacy": 2
+      }
+    ]
+  },
+  {
+    "id": "court_marriage_alliance",
+    "title": "A Marriage Alliance",
+    "text": "A great family offers a marriage tie. They want offices and influence in return.",
+    "tags": ["court"],
+    "minYear": 1348,
+    "maxYear": 1558,
+    "weight": 6,
+    "choices": [
+      {
+        "label": "Accept; bind them to the crown.",
+        "delta": { "loyalty": 8, "faith": 1, "populous": -1, "wealth": -2 },
+        "legacy": 1
+      },
+      {
+        "label": "Refuse; keep court factions weak.",
+        "delta": { "loyalty": -6, "army": -1 },
+        "legacy": 0
+      }
+    ]
+  },
+  {
+    "id": "admin_scribes",
+    "title": "More Scribes, More Writs",
+    "text": "Your chancellor proposes expanding royal administration. More clerks would mean more orders obeyed, if you can pay them.",
+    "tags": ["law", "economy"],
+    "minYear": 1348,
+    "maxYear": 1558,
+    "weight": 5,
+    "choices": [
+      {
+        "label": "Expand the royal bureaucracy.",
+        "delta": { "wealth": -6, "populous": 2, "loyalty": -3 },
+        "addTags": ["centralization"],
+        "legacy": 2
+      },
+      {
+        "label": "Rely on lords and custom.",
+        "delta": { "loyalty": 4, "faith": 1 },
+        "legacy": 0
+      }
+    ]
+  },
+  {
+    "id": "plague_wave_late",
+    "title": "A New Wave of Sickness",
+    "text": "After years of uneasy calm, sickness returns in pockets. Some flee to the countryside; others barricade streets.",
+    "tags": ["plague", "crisis"],
+    "minYear": 1361,
+    "maxYear": 1370,
+    "weight": 7,
+    "choices": [
+      {
+        "label": "Reinforce burial crews and isolate the sick.",
+        "delta": { "wealth": -6, "populous": 4, "faith": 1, "loyalty": 1 },
+        "addTags": ["plague_active"],
+        "legacy": 2
+      },
+      {
+        "label": "Do nothing; let it burn out.",
+        "delta": { "populous": -6, "wealth": 2, "loyalty": -2 },
+        "addTags": ["plague_active"],
+        "legacy": -1
+      }
+    ]
+  },
+  {
+    "id": "plague_fear_declines",
+    "title": "The Pestilence Eases",
+    "text": "Cases fall. Survivors speak of new freedoms, and landlords speak of lost dues. The realm breathes again, unevenly.",
+    "tags": ["plague"],
+    "minYear": 1350,
+    "maxYear": 1380,
+    "weight": 4,
+    "requiresTags": ["plague_active"],
+    "unique": false,
+    "choices": [
+      {
+        "label": "Hold thanksgiving and rebuild quietly.",
+        "delta": { "faith": 4, "populous": 3, "wealth": -2, "loyalty": 1 },
+        "removeTags": ["plague_active"],
+        "legacy": 2
+      },
+      {
+        "label": "Use the lull to tighten labor laws.",
+        "delta": { "loyalty": 2, "populous": -6, "wealth": 2 },
+        "addTags": ["wage_controls"],
+        "removeTags": ["plague_active"],
+        "legacy": 0
+      }
+    ]
+  },
+  {
+    "id": "generic_banditry",
+    "title": "Bandits on the Roads",
+    "text": "Travelers are robbed; a sheriff asks funds for patrols. Merchants complain trade is slowing.",
+    "tags": ["crisis"],
+    "minYear": 1348,
+    "maxYear": 1558,
+    "weight": 6,
+    "choices": [
+      {
+        "label": "Pay for patrols and hang the worst offenders.",
+        "delta": { "wealth": -6, "army": 3, "populous": 1, "loyalty": 1 },
+        "legacy": 1
+      },
+      {
+        "label": "Leave it to local lords.",
+        "delta": { "loyalty": 3, "populous": -2, "army": -1 },
+        "legacy": -1
+      }
+    ]
+  }
+  ,
+  {
+    "id": "economy_ship_investment",
+    "title": "An Overseas Venture",
+    "text": "A merchant consortium offers you a stake in a ship bound for distant ports. If it returns, the profit will be handsome. If it is lost, the court will whisper that you gambled the realm’s coin.",
+    "tags": ["economy"],
+    "minYear": 1348,
+    "maxYear": 1558,
+    "weight": 4,
+    "choices": [
+      {
+        "label": "Invest in the ship.",
+        "delta": { "wealth": -6 },
+        "luckRoll": {
+          "difficulty": 55,
+          "successDelta": { "wealth": 16, "loyalty": 2 },
+          "failDelta": { "wealth": -6, "loyalty": -4 }
+        },
+        "legacy": 1
+      },
+      {
+        "label": "Refuse. The Crown does not gamble.",
+        "delta": { "loyalty": 1 },
+        "legacy": 0
+      }
+    ]
+  }
+]
+

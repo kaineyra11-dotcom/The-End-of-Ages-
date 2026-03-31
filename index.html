@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The End of Ages - Feudal England</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand__title">The End of Ages</div>
+          <div class="brand__subtitle">Feudal England (1348+)</div>
+        </div>
+        <div class="topbar__right">
+          <div id="date" class="chip" aria-label="Current date">-</div>
+          <button id="btnMenu" class="button button--ghost" type="button">Menu</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel">
+          <div class="panel__title">Realm</div>
+          <div class="stats" id="stats" aria-label="Kingdom statistics"></div>
+          <div class="hint">
+            Goal: keep the realm intact and delay the collapse of the feudal order.
+          </div>
+        </section>
+
+        <section class="cardArea" aria-label="Event card">
+          <div id="card" class="card" role="group" aria-roledescription="event card">
+            <div class="card__meta">
+              <div id="cardTags" class="tags"></div>
+              <div id="cardId" class="muted"></div>
+            </div>
+            <div id="cardArt" class="cardArt" aria-hidden="true">
+              <div id="cardArtIcon" class="cardArt__icon">♜</div>
+              <div id="cardArtLabel" class="cardArt__label">Court</div>
+            </div>
+            <h2 id="cardTitle" class="card__title">Loading…</h2>
+            <p id="cardText" class="card__text"></p>
+            <div id="advisor" class="advisor" aria-label="Advisor">
+              <div class="advisor__portrait" aria-hidden="true"></div>
+              <div class="advisor__body">
+                <div class="advisor__name">Uncle Albeart</div>
+                <div id="advisorLine" class="advisor__line">-</div>
+              </div>
+            </div>
+            <div id="choices" class="choices" aria-label="Choices"></div>
+          </div>
+
+          <div id="log" class="log" aria-label="Recent outcomes"></div>
+        </section>
+      </main>
+
+      <dialog id="menu" class="modal">
+        <form method="dialog" class="modal__sheet">
+          <div class="modal__header">
+            <div class="modal__title">Game Menu</div>
+            <button class="button button--ghost" value="close">Close</button>
+          </div>
+
+          <div class="modal__section">
+            <div class="modal__label">Mode</div>
+            <div class="segmented" role="group" aria-label="Mode">
+              <button id="modeReign" class="segmented__btn" type="button">Reign (1348–1400)</button>
+              <button id="modeDynasty" class="segmented__btn" type="button">Dynasty (1348–1558)</button>
+            </div>
+          </div>
+
+          <div class="modal__section">
+            <div class="modal__label">Actions</div>
+            <div class="modal__actions">
+              <button id="btnNewGame" class="button" type="button">New game</button>
+              <button id="btnSound" class="button button--ghost" type="button">Sound: On</button>
+              <button id="btnMusic" class="button button--ghost" type="button">Music: On</button>
+              <button id="btnExport" class="button button--ghost" type="button">Export save</button>
+              <label class="button button--ghost fileBtn">
+                Import save
+                <input id="fileImport" type="file" accept="application/json" />
+              </label>
+            </div>
+          </div>
+
+          <div class="modal__section">
+            <div class="modal__label">Volume</div>
+            <div class="sliderRow">
+              <input id="vol" class="slider" type="range" min="0" max="100" value="60" />
+              <div id="volLabel" class="chip">60%</div>
+            </div>
+          </div>
+
+          <div class="modal__section">
+            <div class="modal__label">Legacy Upgrades</div>
+            <div class="modal__note">
+              Banked Legacy: <span id="legacyBank">0</span>
+            </div>
+            <div id="upgrades" class="upgrades" aria-label="Upgrades"></div>
+          </div>
+
+          <div class="modal__section">
+            <div class="modal__label">Notes</div>
+            <div class="modal__note">
+              If events don’t load when opening the file directly, run a local server (see `README.md`).
+            </div>
+          </div>
+        </form>
+      </dialog>
+
+      <dialog id="ending" class="modal">
+        <form method="dialog" class="modal__sheet">
+          <div class="modal__header">
+            <div class="modal__title" id="endingTitle">The End</div>
+            <button class="button button--ghost" value="close">Close</button>
+          </div>
+          <div class="modal__section">
+            <div id="endingBody" class="modal__note"></div>
+          </div>
+          <div class="modal__actions">
+            <button id="btnRestart" class="button" type="button">Play again</button>
+            <button class="button button--ghost" value="close">Close</button>
+          </div>
+        </form>
+      </dialog>
+
+      <dialog id="intro" class="modal">
+        <form method="dialog" class="modal__sheet modal__sheet--intro">
+          <div class="modal__header">
+            <div class="modal__title">A Letter Sealed in Wax</div>
+            <button class="button button--ghost" value="close">Skip</button>
+          </div>
+          <div class="modal__section">
+            <div class="letter">
+              <div class="letter__salute">To our Sovereign Lord,</div>
+              <div class="letter__body">
+                By the Grace of God and the sacred laws of our ancestors, the Crown is now yours.
+                Your late Father has passed to the Heavens, and the Great Barons have knelt to swear their fealty to you.
+                <br /><br />
+                Remember: You are the protector of the Faith, the defender of the Realm, and the master of the Land.
+                The Peasants provide the labor, the Knights provide the sword, and <strong>YOU</strong> provide the order.
+                <br /><br />
+                Should the ladder break, the world falls to darkness: you lose your head, and worse, those absolutely filthy commoner peasants
+                will be able to have <em>any</em> role in society, which is absolutely dreadful.
+                <br /><br />
+                Do not feel overly stressed. You shall have your father’s trustworthy advisor with you.
+              </div>
+              <div class="letter__sig">
+                In best regards,<br />
+                your uncle,<br />
+                <strong>Albeart</strong>
+              </div>
+            </div>
+          </div>
+          <div class="modal__actions">
+            <button id="btnBegin" class="button" type="button">Begin the reign</button>
+            <button id="btnBeginDynasty" class="button button--ghost" type="button">Begin the dynasty</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
+
