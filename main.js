@@ -270,7 +270,7 @@ async function loadEvents() {
   // #region agent log
   fetch('http://127.0.0.1:7565/ingest/298c0227-b044-4508-839c-37f599eda128',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'42ef7a'},body:JSON.stringify({sessionId:'42ef7a',runId:'pre-fix',hypothesisId:'H1',location:'src/main.js:loadEvents',message:'Loading events JSON',data:{url:'./data/events_england.json'},timestamp:Date.now()})}).catch(()=>{});
   // #endregion
-  const res = await fetch("./data/events_england.json", { cache: "no-store" });
+  const res = await fetch("./events_england.json", { cache: "no-store" });
   // #region agent log
   fetch('http://127.0.0.1:7565/ingest/298c0227-b044-4508-839c-37f599eda128',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'42ef7a'},body:JSON.stringify({sessionId:'42ef7a',runId:'pre-fix',hypothesisId:'H1',location:'src/main.js:loadEvents',message:'Events fetch response',data:{ok:res.ok,status:res.status,contentType:res.headers.get('content-type')},timestamp:Date.now()})}).catch(()=>{});
   // #endregion
